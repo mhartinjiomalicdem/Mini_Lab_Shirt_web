@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mini Lab Shirt</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: url('https://images.unsplash.com/photo-1521334884684-d80222895322') no-repeat center center/cover;
+  color: white;
+}
+
+.overlay {
+  background: rgba(0,0,0,0.6);
+  min-height: 100vh;
+}
+
+/* NAVBAR */
+.navbar {
+  padding: 15px;
+  background: rgba(0,0,0,0.7);
+}
+
+.navbar a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.cart {
+  float: right;
+  font-weight: bold;
+}
+
+/* PAGES */
+.page { display: none; }
+.active { display: block; }
+
+.container { padding: 30px; }
+
+/* HERO */
+.hero {
+  text-align: center;
+  margin-top: 120px;
+}
+
+.hero h1 {
+  font-size: 60px;
+}
+
+.hero button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  background: #00ffcc;
+  cursor: pointer;
+}
+
+/* PRODUCTS */
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product {
+  background: rgba(255,255,255,0.1);
+  padding: 15px;
+  border-radius: 10px;
+  width: 200px;
+  transition: 0.3s;
+}
+
+.product img {
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.product:hover {
+  transform: scale(1.08);
+}
+
+.product img:hover {
+  transform: scale(1.1);
+}
+
+.price {
+  color: #00ffcc;
+}
+
+/* ABOUT LAYOUT */
+.about {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.about-text {
+  width: 50%;
+}
+
+.about-img {
+  width: 50%;
+}
+
+.about-img img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* MODAL IMAGE */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal img {
+  width: 300px;
+}
+
+/* CONTACT TEXT */
+.contact-info p {
+  margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+<div class="overlay">
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <a onclick="showPage('home')">Home</a>
+  <a onclick="showPage('about')">About Us</a>
+  <a onclick="showPage('products')">Products</a>
+  <a onclick="showPage('contacts')">Contacts</a>
+
+  <span class="cart">Cart: <span id="cartCount">0</span></span>
+</div>
+
+<!-- HOME -->
+<div id="home" class="page active">
+  <div class="container hero">
+    <h1>Mini Lab Shirt</h1>
+    <p>Wear your creativity.</p>
+    <button onclick="showPage('products')">Shop Now</button>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="page">
+  <div class="container about">
+
+    <div class="about-text">
+      <h1>About Us</h1>
+      <p>
+        We believe that what you wear is a silent language. Founded in 2023, Mini Lab Shirt was born out of a desire to strip away the noise and focus on what truly matters: exceptional quality, timeless silhouettes, and the perfect fit. We do not follow seasons, we follow style. Every piece in our collection is designed to be a staple in your wardrobe, moving with you from morning light to midnight.
+<br><br>
+We are dedicated to the modern individual who values substance as much as style, someone who understands that clothing is more than just fabric, but an extension of identity. Our designs are carefully crafted with attention to detail, ensuring comfort, durability, and versatility in every piece. Whether you are dressing for simplicity or making a subtle statement, our garments are made to adapt to your lifestyle effortlessly.
+<br><br>
+We focus on clean aesthetics and purposeful design. Each item is created with intention, from the choice of materials to the final stitch. We aim to deliver clothing that feels as good as it looks, pieces that you can rely on every day without compromising style or comfort. Our goal is to create essentials that remain relevant, no matter the time or trend.
+<br><br>
+At Mini Lab Shirt, we believe in slow fashion. We create pieces that are meant to last, not just in quality but also in design. Instead of chasing fast trends, we focus on building a collection that grows with you. We value authenticity, consistency, and the idea that less can truly be more when done right.
+<br><br>
+Our brand is built for individuals who appreciate simplicity with purpose. People who move with confidence, who choose quality over excess, and who understand that true style does not need to be loud to be seen. Every release we create is a reflection of our passion for design and our commitment to providing clothing that fits seamlessly into your everyday life.
+<br><br>
+Elevated. Essential. Effortless.
+This is more than clothing. This is Mini Lab Shirt.
+
+
+      </p>
+    </div>
+
+    <div class="about-img">
+      <img src="https://scontent.fmnl9-1.fna.fbcdn.net/v/t1.15752-9/673445087_1603366890717803_6985770329435619182_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeEh2Mc5M0Mwiz9NGWtlL5z_ZwCu52hqmNdnAK7naGqY1_PviVyhOVsHPdNWvzFhBjT0KEleHosUa2UGdH6Z2pJU&_nc_ohc=FeCSMbHo9WEQ7kNvwEu27KW&_nc_oc=AdquQitGpAmZkezus9AlUVDFK6-1F7QJ_XWfrTIJ_6YEf0xZ0d9z6gnQ2lpyCSW-ohY&_nc_zt=23&_nc_ht=scontent.fmnl9-1.fna&_nc_ss=7a3a8&oh=03_Q7cD5AHX5SJsWLNTFUT9wPT-NAkK1vtoIUL6rQ7ECt3Xzi3J0Q&oe=6A0A66B2">
+    </div>
+
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<div id="products" class="page">
+  <div class="container">
+    <h1>Products</h1>
+
+    <div class="products">
+
+      <div class="product">
+        <img src="https://scontent.fmnl9-4.fna.fbcdn.net/v/t1.15752-9/672072859_1478395626683562_1993500800733780141_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeECJ7lXiS8vfQCtM4R8aVmPqvL-PhvnhfWq8v4-G-eF9cZ-AAjTAERedmNbKHGxG-eChiYF346rUvAQh6fFUYda&_nc_ohc=7msBfrwzCbkQ7kNvwHm_QMQ&_nc_oc=AdqAOBHQ3v3YVyqS0Oby_xS8zqRQTJsxL7zfbvGQcftXaR_20-zGzKpZD7KqCM_t1ps&_nc_zt=23&_nc_ht=scontent.fmnl9-4.fna&_nc_ss=7a3a8&oh=03_Q7cD5AEJTJHhRgEtQ7KzE84WCviZSLT898WXcsYqasVcWlwdVA&oe=6A0A853B">
+        <h3>Sweater</h3>
+        <p class="price">₱399</p>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
+
+      <div class="product">
+        <img src="https://scontent.fmnl9-7.fna.fbcdn.net/v/t1.15752-9/669354144_1486844602843863_4968178397562885533_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGbSuwQfqTWjB60R9LSN9uiQyBQaIhTKFtDIFBoiFMoW51SiIHT4sN5U9DEUlpLQxeMv8RXOp8EDOtEj_KtWTR1&_nc_ohc=QC6xAMMOR7AQ7kNvwGov8oO&_nc_oc=AdrR55YCMHJOjlSKnAqjj7IrSmrtnGhAAtcvVoJHLUfnJhxV4SNXd7I7fVa-HyOwCrA&_nc_zt=23&_nc_ht=scontent.fmnl9-7.fna&_nc_ss=7a3a8&oh=03_Q7cD5AEKEV_kWswyoEqBrAw5QvvDHHvR27iLKK-RB5-W_PEG9Q&oe=6A0A7CC2">
+        <h3>Tote Bag</h3>
+        <p class="price">₱299</p>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
+
+      <div class="product">
+        <img src="https://scontent.fmnl9-3.fna.fbcdn.net/v/t1.15752-9/672325092_2143779679712421_7153713833562754934_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeE-Ewtpx7ngPXt794ZHZKluu8vC5zCfMlm7y8LnMJ8yWWOdM0XPjjAFVdF1LEKcVxX7yzpEKk7-j6_xMCwTzw_p&_nc_ohc=ygJF9fkqzqsQ7kNvwHmL9Hn&_nc_oc=AdpLWTZ7vemVgKmJD29H0jqgMNWlb2XBTJCUnv_bCCGJrHTw2Tty3fpY_5SnaIks83U&_nc_zt=23&_nc_ht=scontent.fmnl9-3.fna&_nc_ss=7a3a8&oh=03_Q7cD5AEyrtgcBqjC02dLMj0B0pALoikvjkneUyaeIDgAxQKpiQ&oe=6A0A90AD">
+        <h3>Vintage T-Shirt</h3>
+        <p class="price">₱499</p>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
+
+      <div class="product">
+        <img src="https://scontent.fmnl9-2.fna.fbcdn.net/v/t1.15752-9/673557458_1998108354396052_7915286293800398368_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGDBW2rNJM6NEz8nH1kVuudOb4Uc8EVcnw5vhRzwRVyfIwPZNGDfrGM9MCS7A9J3FPen-S7tkMvYiftmvLU8oIU&_nc_ohc=9lToOC7U_74Q7kNvwE1rXOf&_nc_oc=AdpUulBp6i7cjvHHbuBiTYMyCf-9A7-b9c1YVxqI6qXrY0PutEWZ7owzdflBM6yBGCM&_nc_zt=23&_nc_ht=scontent.fmnl9-2.fna&_nc_ss=7a3a8&oh=03_Q7cD5AEVHyNt5vhFUdek1yVwvBHz7wF5VqPnsKnxBaQCEcpDfg&oe=6A0A6932">
+        <h3>Album T-Shirt</h3>
+        <p class="price">₱799</p>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CONTACTS -->
+<div id="contacts" class="page">
+  <div class="container contact-info">
+    <h1>Contact Us</h1>
+
+    <p>Email: minilabshirt@gmail.com</p>
+    <p>Phone: 63-9123456789</p>
+    <p>Facebook: Mini Lab Shirt</p>
+    <p>Instagram: @minilabshirt</p>
+
+  </div>
+</div>
+
+</div>
+
+<!-- IMAGE MODAL -->
+<div class="modal" id="imageModal" onclick="closeModal()">
+  <img id="modalImg">
+</div>
+
+<script>
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+}
+
+/* CART */
+let cart = 0;
+function addToCart() {
+  cart++;
+  document.getElementById("cartCount").innerText = cart;
+}
+
+/* IMAGE MODAL */
+function openModal(src) {
+  document.getElementById("imageModal").style.display = "flex";
+  document.getElementById("modalImg").src = src;
+}
+
+function closeModal() {
+  document.getElementById("imageModal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
